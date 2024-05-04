@@ -1,0 +1,7 @@
+{
+  "name": "FH Marketplace",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
