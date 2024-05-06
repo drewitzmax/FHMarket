@@ -1,83 +1,81 @@
 import { Injectable } from '@angular/core';
 
-export interface Message {
-  fromName: string;
-  subject: string;
+export interface Article {
+  username: string;
+  title: string;
   date: string;
+  price: number;
   id: number;
-  read: boolean;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  public messages: Message[] = [
+  public messages: Article[] = [
     {
-      fromName: 'Matt Chorsey',
-      subject: 'New event: Trip to Vegas',
+      username: 'Matt Chorsey',
+      title: 'New event: Trip to Vegas',
       date: '9:32 AM',
+      price: 25,
       id: 0,
-      read: false
     },
     {
-      fromName: 'Lauren Ruthford',
-      subject: 'Long time no chat',
+      username: 'Lauren Ruthford',
+      title: 'Long time no chat',
       date: '6:12 AM',
-      id: 1,
-      read: false
-    },
+      price: 25,
+      id: 1,},
     {
-      fromName: 'Jordan Firth',
-      subject: 'Report Results',
+      username: 'Jordan Firth',
+      title: 'Report Results',
       date: '4:55 AM',
-      id: 2,
-      read: false
-    },
+      price: 25,
+      id: 2},
     {
-      fromName: 'Bill Thomas',
-      subject: 'The situation',
+      username: 'Bill Thomas',
+      title: 'The situation',
       date: 'Yesterday',
-      id: 3,
-      read: false
+      price: 25,
+      id: 3
     },
     {
-      fromName: 'Joanne Pollan',
-      subject: 'Updated invitation: Swim lessons',
+      username: 'Joanne Pollan',
+      title: 'Updated invitation: Swim lessons',
       date: 'Yesterday',
-      id: 4,
-      read: false
+      price: 25,
+      id: 4
     },
     {
-      fromName: 'Andrea Cornerston',
-      subject: 'Last minute ask',
+      username: 'Andrea Cornerston',
+      title: 'Last minute ask',
       date: 'Yesterday',
-      id: 5,
-      read: false
+      price: 25,
+      id: 5
     },
     {
-      fromName: 'Moe Chamont',
-      subject: 'Family Calendar - Version 1',
+      username: 'Moe Chamont',
+      title: 'Family Calendar - Version 1',
       date: 'Last Week',
-      id: 6,
-      read: false
+      price: 25,
+      id: 6
     },
     {
-      fromName: 'Kelly Richardson',
-      subject: 'Placeholder Headhots',
+      username: 'Kelly Richardson',
+      title: 'Placeholder Headhots',
       date: 'Last Week',
-      id: 7,
-      read: false
+      price: 25,
+      id: 7
     }
   ];
 
   constructor() { }
 
-  public getMessages(): Message[] {
+  public getMessages(): Article[] {
     return this.messages;
   }
 
-  public getMessageById(id: number): Message {
+  public getArticleById(id: number): Article {
     return this.messages[id];
   }
 }

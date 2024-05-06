@@ -7,13 +7,17 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'message/:id',
-    loadChildren: () => import('./view-message/view-message.module').then( m => m.ViewMessagePageModule)
+    path: 'article/:id',
+    loadChildren: () => import('./view-article/view-article.module').then(m => m.ViewMessagePageModule)
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'add',
+    loadChildren: () => import('./article-add/article-add.module').then( m => m.ArticleAddPageModule)
   },
 ];
 
