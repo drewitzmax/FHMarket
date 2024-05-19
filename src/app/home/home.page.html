@@ -14,7 +14,7 @@
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">
-        Inbox
+        Angebote
       </ion-title>
     </ion-toolbar>
   </ion-header>
@@ -25,7 +25,7 @@
 </ion-content>
 
 <ion-fab horizontal="end" vertical="bottom">
-  <ion-fab-button href="/add">
+  <ion-fab-button [routerLink]="['/add']" router-direction="forward">
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
 </ion-fab>

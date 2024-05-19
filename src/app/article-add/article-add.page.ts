@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NavController} from "@ionic/angular";
 
 @Component({
   selector: 'app-article-add',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticleAddPage implements OnInit {
 
-  constructor() { }
+  constructor(protected navCtrl: NavController) { }
 
   ngOnInit() {
   }
-
 }

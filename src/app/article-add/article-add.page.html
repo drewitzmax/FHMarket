@@ -13,12 +13,12 @@
       <ion-input label="Titel" label-placement="stacked"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input label="Preis" label-placement="stacked"></ion-input>
+      <ion-input label="Preis" type="number" label-placement="stacked"></ion-input>
     </ion-item>
     <ion-item>
       <ion-textarea label="Beschreibung" label-placement="stacked"></ion-textarea>
     </ion-item>
       <ion-button color="primary" expand="full">Erstellen</ion-button>
-      <ion-button color="danger" expand="full">Verwerfen</ion-button>
+      <ion-button color="danger" expand="full" (click)="navCtrl.back()">Verwerfen</ion-button>
   </ion-list>
 </ion-content>

@@ -1,3 +1,13 @@
+.articledetail{
+  &__image{
+    height: 700px;
+    max-height: 80vh;
+  }
+  &__price{
+    font-size: larger;
+    color: var(--ion-color-primary);
+  }
+}
 ion-item {
   --inner-padding-end: 0;
   --background: transparent;
@@ -10,7 +20,7 @@ ion-label {
 
 ion-item h2 {
   font-weight: 600;
-  
+
   /**
    * With larger font scales
    * the date/time should wrap to the next
