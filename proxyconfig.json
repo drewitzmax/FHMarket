@@ -1,0 +1,8 @@
+{
+  "/inserat/*": {
+    "target": "https://us-central1-aiprojekt-425908.cloudfunctions.net",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

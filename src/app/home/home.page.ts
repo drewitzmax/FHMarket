@@ -11,15 +11,14 @@ import { DataService, Article } from '../services/data.service';
 })
 export class HomePage {
   private data = inject(DataService);
-  constructor() {}
+  protected messages: any[] = [];
+  constructor() {
+    this.data.getMessages().then(value => this.messages = value);
+  }
 
   refresh(ev: any) {
     setTimeout(() => {
       (ev as RefresherCustomEvent).detail.complete();
     }, 3000);
-  }
-
-  getMessages(): Article[] {
-    return this.data.getMessages();
   }
 }
