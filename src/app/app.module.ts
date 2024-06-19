@@ -8,11 +8,16 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
-
+import {OAuthModule, OAuthService} from "angular-oauth2-oidc";
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule, OAuthModule.forRoot({
+    resourceServer: {
+      sendAccessToken: true,
+      allowedUrls: ['http://localhost:8080', 'https://userwebservice-dot-authwfp1.oa.r.appspot.com/', 'https://us-central1-aiprojekt-425908.cloudfunctions.net/inserat']
+    }
+  })],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, OAuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

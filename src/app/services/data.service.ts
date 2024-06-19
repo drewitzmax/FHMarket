@@ -7,80 +7,13 @@ export interface Article {
   description: string;
   date: string;
   price: number;
-  id: number;
+  id?: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  public messages: Article[] = [
-    {
-      username: 'Matt Chorsey',
-      title: 'New event: Trip to Vegas',
-      description: "",
-      date: '9:32 AM',
-      price: 25,
-      id: 0,
-    },
-    {
-      username: 'Lauren Ruthford',
-      title: 'Long time no chat',
-      description: "",
-      date: '6:12 AM',
-      price: 25,
-      id: 1,
-    },
-    {
-      username: 'Jordan Firth',
-      title: 'Report Results',
-      description: "",
-      date: '4:55 AM',
-      price: 25,
-      id: 2
-    },
-    {
-      username: 'Bill Thomas',
-      title: 'The situation',
-      description: "",
-      date: 'Yesterday',
-      price: 25,
-      id: 3
-    },
-    {
-      username: 'Joanne Pollan',
-      title: 'Updated invitation: Swim lessons',
-      description: "",
-      date: 'Yesterday',
-      price: 25,
-      id: 4
-    },
-    {
-      username: 'Andrea Cornerston',
-      title: 'Last minute ask',
-      description: "",
-      date: 'Yesterday',
-      price: 25,
-      id: 5
-    },
-    {
-      username: 'Moe Chamont',
-      title: 'Family Calendar - Version 1',
-      description: "",
-      date: 'Last Week',
-      price: 25,
-      id: 6
-    },
-    {
-      username: 'Kelly Richardson',
-      title: 'Placeholder Headhots',
-      description: "",
-      date: 'Last Week',
-      price: 25,
-      id: 7
-    }
-  ];
-
   private static article_service_url = "/inserat";
 
   constructor(private http: HttpClient) {
@@ -99,9 +32,15 @@ export class DataService {
     });
   }
 
-  public getArticleById(id: number): Promise<Article> {
+  public getArticleById(id: string): Promise<Article> {
     return new Promise((resolve, reject) => {
-      resolve(this.messages[id])
+      this.http.get(DataService.article_service_url + `?getbyinseratID=${id}`).subscribe({
+        next: (val: any) => {
+          const entry = val.Data[0];
+          console.log("val", entry);
+          resolve( {username: entry.Username, title: entry.Beschreibung, price: entry.Preis, date: entry.Datum, id: entry.ID, description: entry.Beschreibung});
+        }, error: err => reject(err)
+      })
     });
   }
 

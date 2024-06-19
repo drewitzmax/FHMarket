@@ -4,5 +4,13 @@
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
+  },
+  "/User/*": {
+    "target": "https://userwebservice-dot-authwfp1.oa.r.appspot.com",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }
+
+

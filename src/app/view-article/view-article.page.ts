@@ -19,7 +19,7 @@ export class ViewArticlePage implements OnInit {
 
   async ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    this.article = await this.data.getArticleById(parseInt(id, 10));
+    this.article = await this.data.getArticleById(id);
   }
 
   getBackButtonText() {
