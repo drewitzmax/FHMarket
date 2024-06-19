@@ -6,9 +6,6 @@ import {AuthConfig, OAuthService} from "angular-oauth2-oidc";
   providedIn: 'root'
 })
 export class LoginService {
-  private loggedIn: boolean = false;
-  private static user_service_url = "https://userwebservice-dot-authwfp1.oa.r.appspot.com";
-
   constructor(private http: HttpClient, private oauth: OAuthService) {
     this.init();
   }
@@ -19,11 +16,10 @@ export class LoginService {
   }
 
   login() {
-    this.loggedIn = true;
     this.oauth.initImplicitFlow();
   }
   logout(){
-    this.loggedIn = false;
+    this.oauth.logOut();
   }
 
   private init(){
