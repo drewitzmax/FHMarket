@@ -9,7 +9,7 @@
 <ion-content [fullscreen]="true" *ngIf="article">
   <div class="ion-padding">
     <h1>{{ article.title }}</h1>
-    <ion-img class="articledetail__image" src="../../../assets/images/050_-1096360834_hoved.jpg" slot="end"></ion-img>
+    <ion-img class="articledetail__image" [src]="picImage" slot="end" *ngIf="picImage"></ion-img>
     <p class="articledetail__price">{{article.price||0}}€</p>
     <p>{{date.format(article.date)}}</p>
     <p>{{article.description}}</p>

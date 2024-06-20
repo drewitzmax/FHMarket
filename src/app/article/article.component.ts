@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, Input, OnInit} from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { Article } from '../services/data.service';
 import {DateService} from "../services/date.service";
@@ -9,12 +9,20 @@ import {DateService} from "../services/date.service";
   styleUrls: ['./article.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ArticleComponent {
+export class ArticleComponent implements OnInit{
   private platform = inject(Platform);
   @Input() article?: Article;
+  protected picImage!: string;
   isIos() {
     return this.platform.is('ios')
   }
 
   constructor(protected date: DateService) {}
+
+  ngOnInit(){
+    if(this.article?.image){
+      this.picImage = "data:image/jpeg;base64,"+ this.article?.image[0];
+    }
+
+  }
 }

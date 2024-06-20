@@ -13,5 +13,5 @@
     </div>
 
   </ion-label>
-  <ion-img class="article__image" src="../../assets/images/050_-1096360834_hoved.jpg" slot="end"></ion-img>
+  <ion-img class="article__image" [src]="picImage" slot="end" *ngIf="picImage"></ion-img>
 </ion-item>

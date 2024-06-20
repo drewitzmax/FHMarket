@@ -11,7 +11,6 @@ export class LoginService {
   }
 
   public isLoggedIn(): boolean{
-    debugger;
     return this.oauth.hasValidAccessToken();
   }
 

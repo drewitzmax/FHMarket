@@ -18,6 +18,8 @@
     <ion-item>
       <ion-textarea [(ngModel)]="description" label="Beschreibung" label-placement="stacked"></ion-textarea>
     </ion-item>
+    <input type="file" (change)="imageLoad()" accept="image/jpeg" #image/>
+
       <ion-button color="primary" expand="full" (click)="postArticle($event)">Erstellen</ion-button>
       <ion-button color="danger" expand="full" (click)="navCtrl.back()">Verwerfen</ion-button>
   </ion-list>

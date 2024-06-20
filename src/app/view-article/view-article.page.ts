@@ -15,12 +15,18 @@ export class ViewArticlePage implements OnInit {
   private data = inject(DataService);
   private activatedRoute = inject(ActivatedRoute);
   private platform = inject(Platform);
+  protected picImage!: string;
 
   constructor(protected date: DateService) {}
 
   async ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
     this.article = await this.data.getArticleById(id);
+
+      if(this.article?.image){
+        this.picImage = "data:image/jpeg;base64,"+ this.article?.image[0];
+      }
+
   }
 
   getBackButtonText() {

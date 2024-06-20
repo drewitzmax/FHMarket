@@ -9,6 +9,7 @@ export interface Article {
   description: string;
   date: string;
   price: number;
+  image:string;
   id?: string;
 }
 
@@ -27,7 +28,7 @@ export class DataService {
         next: (val: any) => {
           console.log("val", val);
           resolve(val.Data.map((entry: any) => {
-            return {username: entry.Username, title: entry.Titel, price: entry.Preis, date: entry.Datum, id: entry.ID};
+            return {username: entry.Username, title: entry.Titel, price: entry.Preis, date: entry.Datum, id: entry.ID, image: entry?.Bilder};
           }));
         }, error: err => reject(err)
       })
@@ -40,7 +41,7 @@ export class DataService {
         next: (val: any) => {
           const entry = val.Data[0];
           console.log("val", entry);
-          resolve( {username: entry.Username, title: entry.Titel, price: entry.Preis, date: entry.Datum, id: entry.ID, description: entry.Beschreibung});
+          resolve( {username: entry.Username, title: entry.Titel, price: entry.Preis, date: entry.Datum, id: entry.ID, description: entry.Beschreibung, image: entry?.Bilder});
         }, error: err => reject(err)
       })
     });
@@ -63,7 +64,7 @@ export class DataService {
         "Preis": article.price,
         "Typ": null,
         "Zustand": null,
-        "Bilder": null,
+        "Bilder": [article.image],
         "Id": null
       }, {headers: {Authorization: `Bearer ${this.login.getToken()}`}}).subscribe({next: value => {
           console.log("ADDRESPONSE", value)
