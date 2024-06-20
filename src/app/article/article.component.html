@@ -4,7 +4,7 @@
       <h2>
         {{ article.title }}
         <span class="date">
-        <ion-note>{{ article.date}}</ion-note>
+        <ion-note>{{ date.format(article.date)}}</ion-note>
         <ion-icon aria-hidden="true" name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon>
       </span>
       </h2>

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { Article } from '../services/data.service';
+import {DateService} from "../services/date.service";
 
 @Component({
   selector: 'app-article',
@@ -14,4 +15,6 @@ export class ArticleComponent {
   isIos() {
     return this.platform.is('ios')
   }
+
+  constructor(protected date: DateService) {}
 }

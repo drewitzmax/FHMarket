@@ -5,7 +5,8 @@ import * as moment from 'moment';
   providedIn: 'root'
 })
 export class DateService {
-  dateFormat = 'YYYY-MM-DDTHH:mm:ssZ'
+  dateFormat = 'YYYY-MM-DDTHH:mm:ssZ';
+  prettyDate: string = 'DD.MM.YYYY HH:mm';
 
   constructor() {
   }
@@ -15,6 +16,6 @@ export class DateService {
   }
 
   public format(date: string){
-    return moment(date).format(this.dateFormat);
+    return moment(date).format(this.prettyDate);
   }
 }
