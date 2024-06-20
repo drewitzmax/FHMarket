@@ -15,6 +15,10 @@ export class LoginService {
     return this.oauth.hasValidAccessToken();
   }
 
+  public getToken(){
+    return this.oauth.getIdToken();
+  }
+
   login() {
     this.oauth.initImplicitFlow();
   }

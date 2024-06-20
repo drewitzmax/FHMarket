@@ -30,6 +30,8 @@
     "@ionic/angular": "^8.0.0",
     "angular-oauth2-oidc": "^17.0.2",
     "ionicons": "^7.0.0",
+    "moment": "^2.30.1",
+    "momentjs": "^2.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

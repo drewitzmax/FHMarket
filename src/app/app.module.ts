@@ -13,7 +13,7 @@ import {OAuthModule, OAuthService} from "angular-oauth2-oidc";
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule, OAuthModule.forRoot({
     resourceServer: {
-      sendAccessToken: true,
+      sendAccessToken: false,
       allowedUrls: ['http://localhost:4200','http://localhost:8080', 'https://userwebservice-dot-authwfp1.oa.r.appspot.com/', 'https://us-central1-aiprojekt-425908.cloudfunctions.net/inserat']
     }
   })],

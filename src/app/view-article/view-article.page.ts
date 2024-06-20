@@ -3,6 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IonicModule, Platform } from '@ionic/angular';
 import { DataService, Article } from '../services/data.service';
+import {DateService} from "../services/date.service";
 
 @Component({
   selector: 'app-view-article',
@@ -15,7 +16,7 @@ export class ViewArticlePage implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
   private platform = inject(Platform);
 
-  constructor() {}
+  constructor(protected date: DateService) {}
 
   async ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id') as string;

@@ -1,12 +1,12 @@
 {
   "/inserat/*": {
-    "target": "https://us-central1-aiprojekt-425908.cloudfunctions.net",
+    "target": "https://europe-west1-authwfp1.cloudfunctions.net/csharp-http-function",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
   },
   "/User/*": {
-    "target": "https://userwebservice-dot-authwfp1.oa.r.appspot.com",
+    "target": "http://localhost:8080",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

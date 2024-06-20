@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {AlertController, NavController} from "@ionic/angular";
 import {DataService} from "../services/data.service";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-article-add',
@@ -12,7 +13,7 @@ export class ArticleAddPage  {
   public description: string;
   public price: number;
 
-  constructor(protected navCtrl: NavController, private data: DataService, private alert: AlertController) {
+  constructor(protected navCtrl: NavController, private data: DataService, private alert: AlertController, private user: UserService) {
     this.title ="";
     this.description ="";
     this.price=0;
@@ -21,7 +22,7 @@ export class ArticleAddPage  {
   protected async postArticle($event: MouseEvent){
     debugger;
     try {
-      await this.data.postArticle({description: this.description, date: Date.now() + "", id: undefined, price: this.price, title: this.title, username: ""})
+      await this.data.postArticle({description: this.description, date: Date.now() + "", id: undefined, price: this.price, title: this.title, username: ""}, this.user.getCurrentUser())
       const al = await this.alert.create({message: "Artikel erfolgreich erstellt!"});
       await al.present();
       this.navCtrl.back()
