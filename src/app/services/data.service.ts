@@ -10,6 +10,7 @@ export interface Article {
   date: string;
   price: number;
   image:string;
+  city?: string;
   id?: string;
 }
 
@@ -28,7 +29,7 @@ export class DataService {
         next: (val: any) => {
           console.log("val", val);
           resolve(val.Data.map((entry: any) => {
-            return {username: entry.Username, title: entry.Titel, price: entry.Preis, date: entry.Datum, id: entry.ID, image: entry?.Bilder};
+            return {username: entry.Username, title: entry.Titel, price: entry.Preis, date: entry.Datum, id: entry.ID, image: entry?.Bilder, city: entry.Ort};
           }));
         }, error: err => reject(err)
       })
@@ -41,7 +42,7 @@ export class DataService {
         next: (val: any) => {
           const entry = val.Data[0];
           console.log("val", entry);
-          resolve( {username: entry.Username, title: entry.Titel, price: entry.Preis, date: entry.Datum, id: entry.ID, description: entry.Beschreibung, image: entry?.Bilder});
+          resolve( {username: entry.Username, title: entry.Titel, price: entry.Preis, date: entry.Datum, id: entry.ID, description: entry.Beschreibung, image: entry?.Bilder, city: entry.Ort});
         }, error: err => reject(err)
       })
     });
@@ -57,8 +58,8 @@ export class DataService {
         "Status": null,
         "Titel": article.title,
         "Adresse": null,
-        "Strasse": currentUser?.addresse?.street,
-        "Ort": currentUser?.addresse?.city,
+        "Strasse": currentUser?.address?.street,
+        "Ort": currentUser?.address?.city,
         "UserID": currentUser.email,
         "Datum": "0001-01-01T00:00:00Z",
         "Preis": article.price,

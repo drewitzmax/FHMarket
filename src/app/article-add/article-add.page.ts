@@ -37,7 +37,7 @@ export class ArticleAddPage {
 
   protected async postArticle($event: MouseEvent){
     try {
-      await this.data.postArticle({description: this.description, date: Date.now() + "", id: undefined, price: this.price, title: this.title, username: "", image: btoa(this.imageFile)}, this.user.getCurrentUser())
+      await this.data.postArticle({description: this.description, date: Date.now() + "", id: undefined, price: this.price, title: this.title, username: "", image: btoa(this.imageFile), city: undefined}, this.user.getCurrentUser())
       const al = await this.alert.create({message: "Artikel erfolgreich erstellt!"});
       await al.present();
       this.navCtrl.back()
