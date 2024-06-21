@@ -9,7 +9,7 @@ export interface Article {
   description: string;
   date: string;
   price: number;
-  image:string;
+  image?:string;
   city?: string;
   id?: string;
 }
@@ -50,6 +50,7 @@ export class DataService {
 
   public async postArticle(article: Article, currentUser: any){
     return new Promise((resolve, reject) => {
+      debugger;
       this.http.post(DataService.article_service_url, {
         "Email": currentUser.email,
         "Telefon": currentUser.telephone,
@@ -65,7 +66,7 @@ export class DataService {
         "Preis": article.price,
         "Typ": null,
         "Zustand": null,
-        "Bilder": [article.image],
+        "Bilder": article.image ? [article.image]: [],
         "Id": null
       }, {headers: {Authorization: `Bearer ${this.login.getToken()}`}}).subscribe({next: value => {
           console.log("ADDRESPONSE", value)

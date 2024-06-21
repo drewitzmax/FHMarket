@@ -12,7 +12,7 @@ import {DateService} from "../services/date.service";
 export class ArticleComponent implements OnInit{
   private platform = inject(Platform);
   @Input() article?: Article;
-  protected picImage!: string;
+  protected picImage!: string|undefined;
   isIos() {
     return this.platform.is('ios')
   }
@@ -21,7 +21,7 @@ export class ArticleComponent implements OnInit{
 
   ngOnInit(){
     if(this.article?.image){
-      this.picImage = "data:image/jpeg;base64,"+ this.article?.image[0];
+      this.picImage = this.article?.image[0] ?"data:image/jpeg;base64,"+ this.article?.image[0]: undefined;
     }
 
   }
